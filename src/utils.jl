@@ -3,7 +3,7 @@ function margins(model, catvar, xb = true)
 
     # original levels
     ncol = mmcolnum(model,catvar)
-    vals = model.mf.f.rhs.terms[ncol].contrasts.levels
+    vals = unique(model.mf.data[Symbol(catvar)])
 
     # get modelmatrix and coefs
     X = modelmatrix(model)
@@ -11,15 +11,15 @@ function margins(model, catvar, xb = true)
 
     # 
     v = mmcolnum(model, catvar)
-    mm[:, v] .= 0.0
+    X[:, v] .= 0.0
 
     # get predicted values
     phat = X * β
 
     # mean and standard error
-    mean = mean(phat);
+    mu = Statistics.mean(phat);
     se = sqrt(var(xb) ./ nobs(model))
-    z = mean ./ se
+    z = mu ./ se
     cv = quantile(Normal(), 0.975)
     pval = 2 .* ccdf(Normal(), z)
     lower = mean .- cv .* se

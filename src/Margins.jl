@@ -5,7 +5,8 @@ module Margins
 ## Dependencies
 ##
 ################################################################################
-using GLM, Distributions, StatsBase, StatsModels, CovarianceMatrices, Distributions
+using GLM, Distributions, StatsBase, StatsModels, CovarianceMatrices, Distributions,
+    Statistics
 
 
 ##############################################################################

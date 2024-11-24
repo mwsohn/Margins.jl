@@ -22,15 +22,15 @@ function margins(model, catvar, xb = true)
     z = mu ./ se
     cv = quantile(Normal(), 0.975)
     pval = 2 .* ccdf(Normal(), z)
-    lower = mean .- cv .* se
-    upper = mean .+ cv .* se
+    lower = mu .- cv .* se
+    upper = mu .+ cv .* se
 
     if xb == true
 
         # transformed
         return DataFrame(
             catvar => vals, 
-            Margin => mean,
+            Margin => mu,
             "Delta SE" => se,
             z => z,
             P => pval,

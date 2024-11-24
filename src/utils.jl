@@ -2,7 +2,7 @@
 function margins(model, catvar, xb = true)
 
     # original levels
-    ncol = mmcolum(model,catvar)
+    ncol = mmcolnum(model,catvar)
     vals = model.mf.f.rhs.terms[ncol].contrasts.levels
 
     # get modelmatrix and coefs

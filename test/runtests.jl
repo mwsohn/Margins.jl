@@ -7,6 +7,7 @@ using Test
 using CSV
 using GLM
 using CategoricalArrays
+using Statistics
 
 # auto.csv
 cars = CSV.read(download("https://raw.githubusercontent.com/sassoftware/sas-viya-programming/refs/heads/master/data/cars.csv"), DataFrame)
@@ -18,5 +19,4 @@ lm1 = fit(LinearModel, @formula(Invoice ~ Origin + EngineSize + Cylinders + Hors
 
 # find differences in Invoice price by origin
 Margins.margins(lm1,:Origin)
-
 

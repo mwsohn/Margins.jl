@@ -1,5 +1,5 @@
 # Margins.jl
-A port of Stata command
+A Julia implementation of Stata "margins" command
 
 ## Installation
 

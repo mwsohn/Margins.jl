@@ -6,7 +6,7 @@ module Margins
 ##
 ################################################################################
 using GLM, Distributions, StatsBase, StatsModels, CovarianceMatrices, Distributions,
-    Statistics
+    Statistics, DataFrames
 
 
 ##############################################################################
